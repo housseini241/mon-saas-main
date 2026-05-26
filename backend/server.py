@@ -2962,7 +2962,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
  
-    allow_origins=json.loads(os.environ.get('CORS_ORIGINS', '["*"]')),
+    allow_origins=json.loads(os.environ.get('CORS_ORIGINS') or '["https://mon-saas-main-uw7v.vercel.app"]'),
+
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -3014,8 +3015,8 @@ app.include_router(api_router)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=json.loads(os.environ.get('CORS_ORIGINS', '["*"]')),
-    allow_methods=["*"],
+   allow_origins=json.loads(os.environ.get('CORS_ORIGINS') or '["https://mon-saas-main-uw7v.vercel.app"]'),
+       allow_methods=["*"],
     allow_headers=["*"],
 )
 
